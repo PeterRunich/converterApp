@@ -14,8 +14,10 @@ COPY . $APP_HOME
 RUN bundle install --without test --jobs `expr $(cat /proc/cpuinfo | grep -c "cpu cores")`
 RUN RAILS_ENV=production bundle exec rake assets:precompile
 
-RUN echo "openrc && touch /run/openrc/softlevel && rc-service redis start rails s -d -e production && sidekiq -d -e production" >> start.sh
+RUN echo "#!/bin/sh" >> start.sh
+RUN echo "openrc && touch /run/openrc/softlevel && rc-service redis start && rails s -d -e production && sidekiq -d -e production" >> start.sh
+RUN echo "sleep infinity" >> start.sh
 RUN chmod 777 ./start.sh
 
 EXPOSE 3000
-ENTRYPOINT ./start.sh
+ENTRYPOINT ["./start.sh"]
