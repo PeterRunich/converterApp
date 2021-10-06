@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Видео для теста: https://drive.google.com/drive/folders/1kiAnwlO8quowvIZ1iDGef6WZzkhVA4WK?usp=sharing
 
-Things you may want to cover:
+docker hub image: https://hub.docker.com/repository/docker/posharn1ck/app_converter
+docker run: sudo docker run -td -p 3000:3000 posharn1ck/app_converter
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+docker build: docker build -t app_converter .
+docker run:   docker run -td -p 3000:3000 app_converter
