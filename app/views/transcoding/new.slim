@@ -1,0 +1,6 @@
+.upload-field data-controller="transcode"
+  img.hidden data-transcode-target="output"
+  input#files.hidden type="file" accept="video/*" data-transcode-target="input" data-action="change->transcode#uploaded"
+  label for="files"
+    | Выберите файл
+  .progress-bar data-transcode-target="progressBar"
