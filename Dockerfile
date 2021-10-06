@@ -17,5 +17,5 @@ RUN RAILS_ENV=production bundle exec rake assets:precompile
 RUN echo "openrc && touch /run/openrc/softlevel && rc-service redis start rails s -d -e production && sidekiq -d -e production && sleep infinity" >> start.sh
 RUN chmod 777 ./start.sh
 
-CMD ./start.sh
 EXPOSE 3000
+ENTRYPOINT ./start.sh
